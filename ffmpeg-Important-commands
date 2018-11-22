@@ -1,0 +1,2 @@
+To extract I frame from a video 
+$ ffmpeg -i VID_20181109_105053.3gp -vf "select=eq(pict_type\,I,P)" -vsync vfr I_frame-%04d.png
