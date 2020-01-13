@@ -410,17 +410,12 @@ Replace nvidia-xxx with the latest nvidia driver you installed above, i.e., nvid
 
 `cd build`
 
-`cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Pascal -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
-`
------------------------------------------------------------------------------------------------
-		IF errors regarding C++11 support use this
-		
-`cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/home/yonas/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Kepler -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -DBUILD_LIBPROTOBUF_FROM_SOURCES=ON -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
+` cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/home/yonas/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Kepler -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -DBUILD_LIBPROTOBUF_FROM_SOURCES=ON -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include .. `
 
 -----------IF CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
 	   Please set them or make sure they are set and tested correctly in the CMake files:
 	   CUDA_nppi_LIBRARY (ADVANCED)
-     `
+ 
 take a look at this link ==> https://stackoverflow.com/questions/46584000/cmake-error-variables-are-set-to-notfound
 
 `make -j8`
