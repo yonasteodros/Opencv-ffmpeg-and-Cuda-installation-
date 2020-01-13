@@ -320,37 +320,37 @@ Install OPENCV w/ FFMPEG and CUDA enabled
 Add the following dynamic links to the nvcuvid libraries.
 ---------
 
-sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so /usr/lib/libnvcuvid.so
+`sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so /usr/lib/libnvcuvid.so`
 
-sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so.1 /usr/lib/libnvcuvid.so.1
+`sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so.1 /usr/lib/libnvcuvid.so.1`
 
 Replace nvidia-xxx with the latest nvidia driver you installed above, i.e., nvidia-390, nvidia-396, etc.
 
 ---------
 
-cd Downloads/
+`cd Downloads/`
 
-git clone https://github.com/opencv/opencv.git
+`git clone https://github.com/opencv/opencv.git`
 
-cd opencv/
+`cd opencv/`
 
-git checkout 3.3.1
+`git checkout 3.3.1`
 
-cd ../
+`cd ../`
 
-git clone https://github.com/opencv/opencv_contrib.git
+`git clone https://github.com/opencv/opencv_contrib.git`
 
-cd opencv_contrib/
+`cd opencv_contrib/`
 
-git checkout 3.3.1
+`git checkout 3.3.1`
 
-cd ~/Downloads/opencv/
+`cd ~/Downloads/opencv/`
 
-mkdir build
+`mkdir build`
 
-cd build
+`cd build`
 
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON -D CUDA_GENERATION=Pascal -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
+`cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON -D CUDA_GENERATION=Pascal -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..`
 
 make -j8
 
@@ -359,81 +359,110 @@ make -j8
 Copy and paste this code
 
 --------------------------------
-
+`
 #define AV_CODEC_FLAG_GLOBAL_HEADER (1 << 22)
 
 #define CODEC_FLAG_GLOBAL_HEADER AV_CODEC_FLAG_GLOBAL_HEADER
 
 #define AVFMT_RAWPICTURE 0x0020
-
+`
 ---------------------------------
 
 To the top of: opencv/modules/videoio/src/cap_ffmpeg_impl.hpp
 
-sudo make install
+`sudo make install`
 
 --------------------
 Install OPENCV3.1.0 w/ FFMPEG and CUDA enabled
 --------------------
 
-Add the following dynamic links to the nvcuvid libraries.
+Add the following dynamic links to the nvcuvid libraries.(This will depend on the type of nvidia driver installed)
 ---------
 
-sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so /usr/lib/libnvcuvid.so
+`sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so /usr/lib/libnvcuvid.so`
 
-sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so.1 /usr/lib/libnvcuvid.so.1
+`sudo ln -s /usr/lib/nvidia-410/libnvcuvid.so.1 /usr/lib/libnvcuvid.so.1`
 
 
 Replace nvidia-xxx with the latest nvidia driver you installed above, i.e., nvidia-390, nvidia-396, etc.
 
 ---------
 
-cd Downloads/
+`cd Downloads/`
 
-git clone https://github.com/opencv/opencv.git
+`git clone https://github.com/opencv/opencv.git`
 
-cd opencv/
+`cd opencv/`
 
-git checkout 3.1.0
+`git checkout 3.1.0`
 
-cd ../
+`cd ../`
 
-git clone https://github.com/opencv/opencv_contrib.git
+`git clone https://github.com/opencv/opencv_contrib.git`
 
-cd opencv_contrib/
+`cd opencv_contrib/`
 
-git checkout 3.1.0
+`git checkout 3.1.0`
 
-cd ~/Downloads/opencv/
+`cd ~/Downloads/opencv/`
 
-mkdir build
+`mkdir build`
 
-cd build
+`cd build`
 
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Pascal -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
-
+`cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Pascal -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
+`
 -----------------------------------------------------------------------------------------------
 		IF errors regarding C++11 support use this
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/home/yonas/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Kepler -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -DBUILD_LIBPROTOBUF_FROM_SOURCES=ON -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
+		
+`cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/home/yonas/Downloads/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON  -D ENABLE_CXX11=ON -D CUDA_GENERATION=Kepler -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/usr/bin/python -D PYTHON_INCLUDE_DIR=/usr/include/python2.7 -D PYTHON3_INCLUDE_DIR=/usr/include/python3.5m -D PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython2.7.so.1 -D PYTHON3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so -D PYTHON_PACKAGES_PATH=/usr/lib/python2.7 -D PYTHON3_PACKAGES_PATH=/usr/lib/python3.5 -D PYTHON_NUMPY_INCLUDE_DIRS=/usr/lib/python2.7/dist-packages/numpy/core/include -DBUILD_LIBPROTOBUF_FROM_SOURCES=ON -D PYTHON3_NUMPY_INCLUDE_DIRS=/usr/lib/python3/dist-packages/numpy/core/include ..
 
 -----------IF CMake Error: The following variables are used in this project, but they are set to NOTFOUND.
 	   Please set them or make sure they are set and tested correctly in the CMake files:
 	   CUDA_nppi_LIBRARY (ADVANCED)
-     
+     `
 take a look at this link ==> https://stackoverflow.com/questions/46584000/cmake-error-variables-are-set-to-notfound
 
-make -j8
+`make -j8`
 
 ------------If there is an error regarding (error: ‘CODEC_FLAG_GLOBAL_HEADER’ and error: ‘AVFMT_RAWPICTURE’)---
 
 Copy and paste this code
 --------------------------------
-
+`
 #define AV_CODEC_FLAG_GLOBAL_HEADER (1 << 22)
 #define CODEC_FLAG_GLOBAL_HEADER AV_CODEC_FLAG_GLOBAL_HEADER
-#define AVFMT_RAWPICTURE 0x0020
+#define AVFMT_RAWPICTURE 0x0020`
 
 ---------------------------------
 To the top of: opencv/modules/videoio/src/cap_ffmpeg_impl.hpp
+--------------------
+Install OPENCV4.2.0 In anaconda virtual enviroment
+--------------------
+`cd Downloads/`
 
-sudo make install
+`git clone https://github.com/opencv/opencv.git`
+
+`cd opencv/`
+
+`git checkout 4.2.0`
+
+`cd ../`
+
+`git clone https://github.com/opencv/opencv_contrib.git`
+
+`cd opencv_contrib/`
+
+`git checkout 4.2.0`
+
+`cd ~/Downloads/opencv/`
+
+`mkdir build`
+
+`cd build`
+
+`
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=OFF -D OPENCV_EXTRA_MODULES_PATH=/media/user/Data/programs/opencv_contrib/modules -D BUILD_EXAMPLES=ON -D BUILD_opencv_python2=ON -D BUILD_opencv_python3=ON -D FORCE_VTK=ON -D WITH_FFMPEG=ON -D WITH_GSTREAMER=ON -D WITH_CUDA=ON -D ENABLE_CXX11=ON -D CUDA_GENERATION=Pascal -D WITH_OPENGL=ON -D WITH_QT=ON -D WITH_EIGEN=ON -D WITH_NVCUVID=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_LAPACK=ON -D PYTHON_DEFAULT_EXECUTABLE=/home/user/anaconda3/envs/my_env/bin/python -D PYTHON_INCLUDE_DIR=/home/user/anaconda3/envs/my_env/include -D PYTHON3_INCLUDE_DIR=/home/user/anaconda3/include/python3.7m -D PYTHON3_LIBRARY=/home/user/anaconda3/envs/my_env/lib/libpython3.7m.so .. `
+
+
+`sudo make install`
